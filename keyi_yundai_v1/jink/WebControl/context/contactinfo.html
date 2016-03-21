@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--联系人信息-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/contactinfo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		.um-content div {
+			font-size: 16px;
+		}
+		.um-list .um-list-item-inner:after {
+			border-width: 0 0 1px 0;
+		}
+		.um-list .um-list-item-inner .um-list-item-left {
+			font-size: 14px;
+			color: #989898;
+		}
+	</style>
+	<body>
+		<div class="um-page" id="index" style="background-color: #F8F8F8;">
+
+			<div class="um-header">
+				<a href="sfdapply.html" class="um-back"> 返回</a>
+				<h3>联系人信息</h3>
+				<a href="#" class="um-header-right" id="contSave" onclick="return contSaveAction()">完成</a>
+			</div>
+
+			<div class="um-content">
+
+				<form>
+					<div style="margin-top: 10px;margin-bottom: 5px;font-size: 12px;color:red;">
+						以下除配偶外剩余信息中必输其中三项，如有配偶，配偶信息必输
+					</div>
+					<div style="margin-top: 10px;margin-bottom: 5px;font-size: 16px;">
+						配偶信息
+					</div>
+					<ul class="um-list" style="margin-top: 0px;margin-bottom: 0px;">
+
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l1.png" width=16 height=16 alt="">
+									<div class="um-list-item-left" >
+										&nbsp;&nbsp;姓名
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="linkname1" placeholder="">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l2.png" width=15 height=15 alt="">
+
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;电话
+									</div>
+									<div class="um-list-item-right">
+										<input type="tel" class="form-control" id="linktel1" placeholder="">
+										<a onclick="linktel(1)" style="width:20px;height:20px;background:url(img/l3.png);border:0;position: absolute;right:10px;top:10px;"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+					<div style="margin-top: 10px;margin-bottom: 5px;">
+						直系亲属信息
+					</div>
+					<ul class="um-list" style="margin-top: 0px;margin-bottom: 0px;">
+
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l1.png" width=16 height=16 alt="">
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;姓名
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="linkname2" placeholder="">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l2.png" width=15 height=15 alt="">
+
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;电话
+									</div>
+									<div class="um-list-item-right">
+										<input type="tel" class="form-control"  id="linktel2" placeholder="">
+										<a onclick="linktel(2)" style="width:20px;height:20px;background:url(img/l3.png);border:0;position: absolute;right:10px;top:10px;"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+					<div style="margin-top: 10px;margin-bottom: 5px;">
+						同事信息
+					</div>
+					<ul class="um-list" style="margin-top: 0px;margin-bottom: 0px;">
+
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l1.png" width=16 height=16 alt="">
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;姓名
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="linkname3" placeholder="">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l2.png" width=15 height=15 alt="">
+
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;电话
+									</div>
+									<div class="um-list-item-right">
+										<input type="tel" class="form-control" id="linktel3" placeholder="*">
+										<a onclick="linktel(3)" style="width:20px;height:20px;background:url(img/l3.png);border:0;position: absolute;right:10px;top:10px;"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+					<div style="margin-top: 10px;margin-bottom: 5px;">
+						其他联系人信息1
+					</div>
+					<ul class="um-list" style="margin-top: 0px;margin-bottom: 0px;">
+
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l1.png" width=16 height=16 alt="">
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;姓名
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="linkname4" placeholder="">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l2.png" width=15 height=15 alt="">
+
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;电话
+									</div>
+									<div class="um-list-item-right">
+										<input type="tel" class="form-control" id="linktel4" placeholder="">
+										<a onclick="linktel(4)" style="width:20px;height:20px;background:url(img/l3.png);border:0;position: absolute;right:10px;top:10px;"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+					<div style="margin-top: 10px;margin-bottom: 5px;">
+						其他联系人信息2
+					</div>
+					<ul class="um-list" style="margin-top: 0px;margin-bottom: 0px;">
+
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l1.png" width=16 height=16 alt="">
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;姓名
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control"  id="linkname5" placeholder="">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/l2.png" width=15 height=15 alt="">
+
+									<div class="um-list-item-left">
+										&nbsp;&nbsp;电话
+									</div>
+									<div class="um-list-item-right">
+										<input type="tel" class="form-control" id="linktel5" placeholder="">
+										<a onclick="linktel(5)" style="width:20px;height:20px;background:url(img/l3.png);border:0;position: absolute;right:10px;top:10px;"></a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			function linktel(teltype) {
+				query();
+				$ctx.setApp({
+					"teltype" : teltype
+				})
+				window.location = "phone.html";
+			}
+
+			function query() {
+				var cachejson = "";
+				/**
+				 *配偶信息
+				 */
+				//姓名
+				var linkname1 = $("#linkname1").val().trim();
+				if (linkname1) {
+					cachejson += "linkname1:" + linkname1 + ",";
+				}
+				//联系电话
+				var linktel1 = $("#linktel1").val().trim();
+				if (linktel1) {
+					cachejson += "linktel1:" + linktel1 + ","
+				}
+
+				/**
+				 *直系亲属信息				 */
+
+				//姓名
+				var linkname2 = $("#linkname2").val().trim();
+				if (linkname2) {
+					cachejson += "linkname2:" + linkname2 + ","
+
+				}
+				//联系电话
+				var linktel2 = $("#linktel2").val().trim();
+				if (linktel2) {
+					cachejson += "linktel2:" + linktel2 + ","
+
+				}
+				/**
+				 *同事信息
+				 */
+				//姓名
+				var linkname3 = $("#linkname3").val().trim();
+				if (linkname3) {
+					cachejson += "linkname3:" + linkname3 + ","
+
+				}
+				//联系电话
+				var linktel3 = $("#linktel3").val().trim();
+				if (linktel3) {
+					cachejson += "linktel3:" + linktel3 + ","
+
+				}
+
+				/**
+				 *其他联系人1
+				 */
+				//姓名
+				var linkname4 = $("#linkname4").val().trim();
+				if (linkname4) {
+					cachejson += "linkname4:" + linkname4 + ","
+
+				}
+				//联系电话
+				var linktel4 = $("#linktel4").val().trim();
+				if (linktel4) {
+					cachejson += "linktel4:" + linktel4 + ","
+
+				}
+				/**
+				 *其他联系人2
+				 */
+				//姓名
+				var linkname5 = $("#linkname5").val().trim();
+				if (linkname5) {
+					cachejson += "linkname5:" + linkname5 + ","
+
+				}
+				//联系电话
+				var linktel5 = $("#linktel5").val().trim();
+				if (linktel5) {
+					cachejson += "linktel5:" + linktel5 + ","
+
+				}
+
+				$ctx.setApp({
+					"contInfo" : cachejson.substr(0, cachejson.length - 1)
+				})
+			}
+		</script>
+	</body>
+</html>

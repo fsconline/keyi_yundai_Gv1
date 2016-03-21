@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--银行流水、工作证明-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" ></script>
+		<script type="text/javascript" src="js/islider.js"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+
+				<a href="applyinfo.html" class="um-back">返回</a>
+				<h3 style="font-family: '宋体';">房屋认购书</h3>
+
+			</div>
+
+			<div  class="um-panel-row um-red" style="font-size:14px;">
+				&nbsp;<img src="img/brcz1.png" />请参照示例图片清晰拍照
+			</div>
+
+			<div class="um-content">
+
+				<a class="um-box-hc" href = "attch81.html"> <img id = "image0" src="img/brcz3.png" alt="" onload="DrawImage(this);" /> </a>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					房屋认购书1
+				</div>
+				<a class="um-box-hc" href = "attch82.html"> <img id = "image1" src="img/brcz3.png" alt="" onload="DrawImage(this);" /> </a>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					房屋认购书2
+				</div>
+				<a class="um-box-hc" href = "attch83.html"> <img id = "image2" src="img/brcz3.png" alt="" onload="DrawImage(this);" /> </a>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					房屋认购书3
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				setTimeout(loadAttch8, 500);
+			});
+
+			function loadAttch8() {
+				var attachs = JSON.parse($ctx.getApp("attachs"));
+				var flag81 = true;
+				var flag82 = true;
+				var flag83 = true;
+				if (attachs) {
+					if (attachs.attch81) {
+						var attach = JSON.parse(attachs.attch81);
+						var down_url = url_mgr + "file/down";
+						$("#image0").attr("src", down_url + "?id=" + attach.src);
+						flag81 = false;
+					}
+
+					if (attachs.attch82) {
+						var attach = JSON.parse(attachs.attch82);
+						var down_url = url_mgr + "file/down";
+						$("#image1").attr("src", down_url + "?id=" + attach.src);
+						flag82 = false;
+					}
+
+					if (attachs.attch83) {
+						var attach = JSON.parse(attachs.attch83);
+						var down_url = url_mgr + "file/down";
+						$("#image2").attr("src", down_url + "?id=" + attach.src);
+						flag83 = false;
+					}
+				}
+
+				if (flag81) {
+					var img = $cache.read("attch81img");
+					if (img) {
+						$("#image0").attr("src", img);
+					}
+				}
+
+				if (flag82) {
+					var img = $cache.read("attch82img");
+					if (img) {
+						$("#image1").attr("src", img);
+					}
+				}
+
+				if (flag83) {
+					var img = $cache.read("attch83img");
+					if (img) {
+						$("#image2").attr("src", img);
+					}
+				}
+			};
+
+		</script>
+
+	</body>
+</html>

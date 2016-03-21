@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/Frameworks/iuapmobile.frameworks.listview-2.7.0.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("Mobile Native Ready");
+			}
+
+			$(function() {
+
+			});
+
+		</script>
+		<script type="text/javascript">
+			function close(id) {
+				var traget = document.getElementById(id);
+				traget.style.display = "none";
+			};
+			function show(id) {
+				var traget = document.getElementById(id);
+				traget.style.display = "";
+			}
+
+			function myapply() {
+				show("listview");
+				close("listview2");
+				close("listview3");
+				close("listview4");
+				close("listview5");
+			}
+
+			function myapply2() {
+				show("listview2");
+				close("listview");
+				close("listview3");
+				close("listview4");
+				close("listview5");
+			}
+
+			function myapply3() {
+				show("listview3");
+				close("listview2");
+				close("listview");
+				close("listview4");
+				close("listview5");
+			}
+
+			function myapply4() {
+				show("listview4");
+				close("listview2");
+				close("listview3");
+				close("listview");
+				close("listview5");
+			}
+
+			function myapply5() {
+				show("listview5");
+				close("listview2");
+				close("listview3");
+				close("listview4");
+				close("listview");
+			}
+		</script>
+	</head>
+	<body>
+		<div class="um-page" id="myapplyli">
+			<div class="um-header">
+				<a href="wode.html" class="um-back">返回</a>
+				<h3>我的申请</h3>
+			</div>
+
+			<div class="um-content">
+
+				<ul class="um-tabbar um-tabbar-underline">
+					<li class="active">
+						<a onclick="myapply()">全部申请</a>
+					</li>
+					<li >
+						<a onclick="myapply2()">待审核</a>
+					</li>
+					<li>
+						<a onclick="myapply3()">审核中</a>
+					</li>
+					<li>
+						<a onclick="myapply4()">已通过</a>
+					</li>
+					<li>
+						<a onclick="myapply5()">已放款</a>
+					</li>
+				</ul>
+
+				<div class="um-listview-wrap" id="listview">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div style="display: none">
+											<span class="id" data-bind="text:id"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+											<span  data-bind="text:company"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="states"></span>
+											<!--<span data-bind="text:order_progress" class="um-red"></span>-->
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="um-listview-wrap" id="listview2">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div style="display: none">
+											<span class="id" data-bind="text:id"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+											<span  data-bind="text:company"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="states"></span>
+											<!--<span data-bind="text:order_progress" class="um-red"></span>-->
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="um-listview-wrap" id="listview3">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div style="display: none">
+											<span class="id" data-bind="text:id"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+											<span  data-bind="text:company"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="states"></span>
+											<!--<span data-bind="text:order_progress" class="um-red"></span>-->
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="um-listview-wrap" id="listview4">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div style="display: none">
+											<span class="id" data-bind="text:id"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+											<span  data-bind="text:company"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="states"></span>
+											<!--<span data-bind="text:order_progress" class="um-red"></span>-->
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="um-listview-wrap" id="listview5">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div style="display: none">
+											<span class="id" data-bind="text:id"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+											<span  data-bind="text:company"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="states"></span>
+											<!--<span data-bind="text:order_progress" class="um-red"></span>-->
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true" >
+			<div class="modal-dialog"  style="width:300px; height:900px;" >
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close"
+						data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">申请提醒 </h4>
+					</div>
+					<div class="modal-body" id="checkpend">
+						<div>
+							<button type="button" id="btn1" class="btn btn-primary"  style="width:80px;" onclick="editInfo()">
+								修改资料
+							</button>
+						</div>
+						<!--
+						<div>
+						<button type="button"  id="btn2" class="btn btn-primary" style="width:80px;margin-top:60px;">
+						提醒审核
+						</button>
+						</div>
+						-->
+					</div>
+					<div class="modal-body" id="auditing">
+						<div>
+							正在审批中，请等待
+						</div>
+					</div>
+					<div class="modal-body" id="noaudit">
+						<div>
+							审批未通过，请修改资料
+						</div>
+						<div>
+							<button type="button"  id="btn2" class="btn btn-primary" style="width:80px;margin-top:60px;" onclick="editInfo()">
+								修改资料
+							</button>
+						</div>
+					</div>
+					<div class="modal-footer"></div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		<script>
+			function editInfo() {
+				window.location.href = "sfdapply.html";
+			}
+
+			$(function() {
+				setTimeout(loadApplyli, 500);
+			});
+
+			function loadApplyli() {
+				myapply()
+				var send_url = url_mgr + "api/querydkinfo";
+				var cust = $ctx.getApp("username");
+
+				var datajson = '{"cust":"' + cust + '"}';
+				$service.call("UMService.post", {
+					"url" : send_url,
+					"data" : JSON.parse(datajson),
+					"callback" : "querydkinfoCallback()"
+				}, true);
+			}
+
+			function querydkinfoBack() {
+				var jsonArray;
+				var jsonArray2 = [];
+				var jsonArray3 = [];
+				var jsonArray4 = [];
+				var jsonArray5 = [];
+				//Knockout绑定
+				var ViewModel = function() {
+					jsonArray = eval($ctx.get("data"));
+				};
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel, document.getElementById('listview'));
+
+				var ViewModel2 = function() {
+					jsonArray = eval($ctx.get("data"));
+					for (var i = 0; i < jsonArray.length; i++) {
+						if (jsonArray[i].order_state == "待审核") {
+							if (jsonArray2.length > 0) {
+								jsonArray2[length] = jsonArray[i]
+							} else {
+								jsonArray2[0] = jsonArray[i]
+							}
+						}
+					}
+				}
+				var viewModel2 = new ViewModel2();
+				viewModel2.data = ko.observableArray(jsonArray2);
+				ko.applyBindings(viewModel2, document.getElementById('listview2'));
+
+				var ViewModel3 = function() {
+					jsonArray = eval($ctx.get("data"));
+					for (var i = 0; i < jsonArray.length; i++) {
+						if (jsonArray[i].order_state == "审核中") {
+							if (jsonArray3.length > 0) {
+								jsonArray3[length] = jsonArray[i]
+							} else {
+								jsonArray3[0] = jsonArray[i]
+							}
+						}
+					}
+				}
+				var viewModel3 = new ViewModel3();
+				viewModel3.data = ko.observableArray(jsonArray3);
+				ko.applyBindings(viewModel3, document.getElementById('listview3'));
+
+				var ViewModel4 = function() {
+					jsonArray = eval($ctx.get("data"));
+					for (var i = 0; i < jsonArray.length; i++) {
+						if (jsonArray[i].order_state == "审核通过") {
+							if (jsonArray4.length > 0) {
+								jsonArray4[length] = jsonArray[i]
+							} else {
+								jsonArray4[0] = jsonArray[i]
+							}
+						}
+					}
+				}
+				var viewModel4 = new ViewModel4();
+				viewModel4.data = ko.observableArray(jsonArray4);
+				ko.applyBindings(viewModel4, document.getElementById('listview4'));
+
+				var ViewModel5 = function() {
+					jsonArray = eval($ctx.get("data"));
+					for (var i = 0; i < jsonArray.length; i++) {
+						if (jsonArray[i].order_state == "已放款" || jsonArray[i].order_state == "还款中" || jsonArray[i].order_state == "已结清") {
+							if (jsonArray5.length > 0) {
+								jsonArray5[length] = jsonArray[i]
+							} else {
+								jsonArray5[0] = jsonArray[i]
+							}
+						}
+					}
+				}
+				var viewModel5 = new ViewModel5();
+				viewModel5.data = ko.observableArray(jsonArray5);
+				ko.applyBindings(viewModel5, document.getElementById('listview5'));
+
+				//构造控件实例
+				var listview = UM.listview('#listview');
+
+				//添加控件方法
+				listview.on('pullDown', function(sender) {
+					//这是可以编写列表下拉加载逻辑，参数sender即为当前列表实例对象
+					/* var row = {'company':'中国兵器装备集团公司','order_id':'000000000000','order_status':'待审核','order_money':'1,500','currency':'$','order_date':'2015-01-01','delivery_date':'2015-01-02','contact_name':'小明','contact_tel':'130********','if_store':false, 'memo':'记得及时发货'};
+					 viewModel.data.unshift(row);*/
+					sender.refresh();
+				});
+				listview.on('pullUp', function(sender) {
+					//这是可以编写列表上拉刷新逻辑，参数sender即为当前列表实例对象					/* var row = {'company':'宝钢集团有限公司','order_id':'000000000006','order_status':'待审核','order_money':'2,500','currency':'$','order_date':'2015-01-01','delivery_date':'2015-01-02','contact_name':'小明','contact_tel':'130********','if_store':false, 'memo':'记得及时发货'};					 viewModel.data.push(row); */
+					sender.refresh();
+				});
+				listview.on('itemDelete', function(sender, args) {
+					//这是可以编写行删除逻辑，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+
+					/* args.$target.slideUp(500, function() {					 var item = viewModel.data()[args.rowIndex];
+					 viewModel.data.remove(item);nb
+					 }); */
+
+				});
+				listview.on('itemClick', function(sender, args) {
+					//这里可以处理行点击事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					//alert('您点击了列表第' + (args.rowIndex + 1) + "行！");
+					var applyId = args.$target.find(".id").text();
+					$ctx.setApp({
+						"applyid" : applyId
+					})
+					var states = args.$target.find(".states").text();
+					if (states == "待审核") {
+						document.getElementById("noaudit").style.display = "none";
+						//隐藏
+						document.getElementById("auditing").style.display = "none";
+						//隐藏
+						document.getElementById("checkpend").style.display = "";
+						//隐藏
+						$("#myModal").modal('show');
+					} else if (states == "审核中") {
+						document.getElementById("noaudit").style.display = "none";
+						//隐藏
+						document.getElementById("checkpend").style.display = "none";
+						//隐藏
+						document.getElementById("auditing").style.display = "";
+						//隐藏
+						$("#myModal").modal('show');
+					} else if (states == "审核未通过") {
+						document.getElementById("auditing").style.display = "none";
+						//隐藏
+						document.getElementById("checkpend").style.display = "none";
+						//隐藏
+						document.getElementById("noaudit").style.display = "";
+						//隐藏
+						$("#myModal").modal('show');
+					} else if (states == "审核通过") {
+						$ctx.setApp({
+							"apply_id" : applyId
+						})
+						window.location.href = "signcontract.html";
+					} else if (states == "已签约待放款" || states == "还款中" || states == "已结清") {
+						$ctx.setApp({
+							"apply_id" : applyId
+						})
+						window.location.href = "qryhuanking.html";
+					}
+
+				});
+				listview.on('itemSwipeLeft', function(sender, args) {
+					//这里可以处理行左滑事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					//sender.showItemMenu(args.$target);
+
+				});
+				listview.on('tapHold', function() {
+					//这里可以处理长按事件
+					//console.log('您长按了列表！');
+				});
+			}
+		</script>
+
+	</body>
+</html>

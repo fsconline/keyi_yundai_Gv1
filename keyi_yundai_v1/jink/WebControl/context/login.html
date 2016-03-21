@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--登陆-->
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<div class="um-page" id="index" style="background:0;background:url(img/6.png);background-size: cover;">
+			<a href="index.html" style="margin-left:10px;"><img src="img/r1.png" /> </a>
+			<div class="um-content" >
+				<div class="um-header" style="border-bottom:0;background:0;margin-top:10px;">
+					<h3><img src="img/1.png"/></h3>
+				</div>
+				<form style="margin-top:30px;">
+					<ul class="um-list" style="margin-top:0;">
+						<li style="border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item" style="border:0;">
+								<div class="um-list-item-media">
+									<img class="media-object um-circle" height=21 width=14 src="img/3.png" alt="..." style="border-radius:0 ;">
+								</div>
+								<div class="um-list-item-inner" style="border:0;">
+									<div class="um-list-item-left" style="color:#bebebe;font-size:16px;">
+										手机号码
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="username" required>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li style="border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item" style="border:0;">
+								<div class="um-list-item-media">
+									<img class="media-object um-circle" height=21 width=14 src="img/4.png" alt="..." style="border-radius:0 ;">
+								</div>
+								<div class="um-list-item-inner" style="border:0;">
+									<div class="um-list-item-left" style="color:#bebebe;font-size:16px;">
+										登录密码
+									</div>
+									<div class="um-list-item-right">
+										<input type="password" class="form-control" id="password" required>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</form>
+				<button type="submit" class="btn um-btn mt20" id="loginsubmit" onclick="loginSubmit();" style="background:#dbba6a;border:0;">
+					登录
+				</button>
+				<button  class="btn um-btn mt20"  style="background:#364172;border:0;" onclick="register();">
+					注册
+				</button>
+				<a href="findpwd.html"><h4 style="width:100%;height: 16px;line-height:16px;font-size:14px;color:#dbba6a;text-align: center;margin-top:50px;"><img src="img/5.png"/>忘记密码</h4></a>
+			</div>
+
+		</div>
+	</body>
+
+</html>

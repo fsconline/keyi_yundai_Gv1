@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--身份证背面-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+        <script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*身份证背面*/
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("");
+			}
+
+			$(function() {
+
+			});
+		</script>
+
+		<script type="text/javascript" src="js/islider.js"></script>
+
+	</head>
+	<body>
+		<div class="um-page" id="chgbindingphone1">
+			<div class=" tc um-header">
+
+				<a href="wode.html" class="um-back">返回</a>
+				<h3>更换绑定手机</h3>
+
+			</div>
+
+			<div class="um-content">
+
+				<ul class="um-list" >
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								绑定手机
+							</div>
+							<input type="text" class="form-control" value="" placeholder="请录入当前用户的绑定手机号">
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								登陆密码
+							</div>
+							<input type="password" class="form-control" value="" placeholder="请输入登陆密码">
+						</div>
+					</li>
+
+				</ul>
+
+				<a href="#chgbindingphone2"  data-transition="um" >
+				<button class="btn um-btn" style="background:#dbba6a;border: 0;">
+					下一步
+				</button> </a>
+			</div>
+		</div>
+
+		<div class="um-page" id="chgbindingphone2">
+			<div class=" tc um-heade" style="background-color: #191970;color:#fff;">
+
+				<a href="#chgbindingphone1" class="um-back"></a>
+				<h3>填写校验码</h3>
+
+			</div>
+
+			<div class="um-content">
+
+				<ul class="um-list" style="margin-bottom: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								新手机号
+							</div>
+							<input type="text" class="form-control" value="" placeholder="请录入新绑定手机号">
+						</div>
+					</li>
+
+				</ul>
+
+				<div class="um-box" style="margin-top: 0px;">
+					
+					<div class="um-bf1 p20 " style="padding-right: 5px;">
+						<input type="text" class="form-control" placeholder="校验码">
+					</div>
+					<div class="um-bf1 p20 "  style="padding-left: 5px;">
+						<button class="btn btn-inline um-no-active um-noborder " style="background-color: #D3D3D3;color:#000000;">
+							发送验证码
+						</button>
+					</div>
+				</div>
+
+				<a href="login.html" data-transition="um" >
+				<button class="btn um-btn" style="background:#dbba6a;border: 0;">
+					完成
+				</button> </a>
+			</div>
+		</div>
+
+	</body>
+</html>

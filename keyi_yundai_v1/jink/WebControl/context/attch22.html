@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--身份证-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" ></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*身份证背面*/
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("");
+			}
+
+			$(function() {
+
+			});
+
+		</script>
+
+		<script type="text/javascript" src="js/islider.js"></script>
+
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+
+				<a href="psninfo.html" class="um-back"></a>
+				<h3 style="font-family: '宋体';">身份证照</h3>
+
+			</div>
+
+			<div class="um-panel um-row h50">
+				<div  class="um-panel-row um-red" style="font-size:14px;">
+					&nbsp;<img src="img/brcz1.png" /> 请将身份证正反面清晰拍摄
+				</div>
+			</div>
+
+			<div class="um-content">
+
+				<a class="um-box-hc" href = "attch22rs.html"> <img id = "image0" src="img/sz.png" alt=""  onload="DrawImage(this);"/> </a>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					身份证正面
+				</div>
+				<a class="um-box-hc" href = "attch22bs.html"> <img id = "image1" src="img/sf.png" alt=""  onload="DrawImage(this);"/> </a>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					身份证反面
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				setTimeout(loadIdCard22, 500);
+			});
+
+			function loadIdCard22() {
+				var attachs = JSON.parse($ctx.getApp("attachs"));
+				var rflag = true;
+				var bflag = true;
+				if (attachs) {
+					if (attachs.attch22rs) {
+						var attach = JSON.parse(attachs.attch22rs);
+						var down_url = url_mgr + "file/down";
+						$("#image0").attr("src", down_url + "?id=" + attach.src);
+						rflag = true;
+					}
+
+					if (attachs.attch22bs) {
+						var attach = JSON.parse(attachs.attch22bs);
+						var down_url = url_mgr + "file/down";
+						$("#image1").attr("src", down_url + "?id=" + attach.src);
+						bflag = true;
+					}
+				}
+
+				if (rflag) {
+					var img = $cache.read("attch22rsimg");
+					if (img) {
+						$("#image0").attr("src", img);
+					}
+				}
+
+				if (bflag) {
+					var img = $cache.read("attch22bsimg");
+					if (img) {
+						$("#image1").attr("src", img);
+					}
+				}
+			}
+
+		</script>
+
+	</body>
+</html>

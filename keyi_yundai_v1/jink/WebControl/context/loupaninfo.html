@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--楼盘-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" type="text/css" href="css/islider.css">
+		<link rel="stylesheet" type="text/css" href="css/iuapmobile.um.listview-2.7.0.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/loupaninfo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.listview-detail {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+
+		</style>
+		<style>
+			.iSlider-wrapper {
+				height: 200px;
+			}
+
+		</style>
+
+		<script type="text/javascript" src="js/islider.js"></script>
+		<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+		<script type="text/javascript" src="js/Frameworks/iuapmobile.frameworks.listview-2.7.0.js"></script>
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+				<a href="loupan.html" class="um-back">返回</a>
+				<h3>楼盘详情</h3>
+			</div>
+
+			<div class="um-content">
+
+				<div class="um-row">
+					<div id="iSlider-wrapper" class="iSlider-wrapper"></div>
+				</div>
+
+				<div id = "total" class="um-panel um-row h50" style="margin-bottom: 0px;">
+					<div  class="um-panel-row tc um-bgc-white">
+						<span class= "um-red fb" id="junjia"></span>
+						<span id="fanwei"></span>
+						<span>m²</span>
+					</div>
+				</div>
+				<div id="filepath" style="line-height:19px; font-size: 14px;font-family:宋体;"></div>
+
+			</div>
+
+			<div class="um-footer">
+
+				<div class="btn-group btn-group-justify">
+					<button type="button" class="btn um-no-brs um-noborder"style=" color:#000000;">
+						售楼中心
+					</button>
+					<button type="button" class="btn um-no-brs um-noborder "style="background-color: #DAA520; color:#fff;" onclick="sfdapply()">
+						申请首付贷
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>

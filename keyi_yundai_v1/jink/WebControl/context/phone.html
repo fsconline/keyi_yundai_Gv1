@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/knockout-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="um-page" id="index" style="background-color: #F8F8F8;">
+			<div class="um-header" style="font-family:'宋体';">
+				<a href="javascript:back();" class="um-back"> 返回</a>
+				<h3>电话薄</h3>
+				<a href="#" id="refersh" onclick="refersh()" class="um-header-right"><span class="ti-reload ml5"></span></a>
+			</div>
+			<div class="um-content">
+
+				<ul class="um-list" id="listview" data-bind="foreach:data" style="display:none">
+					<li class="um-list-item">
+						<a href="" data-bind="attr: {href:'javascript:telCallBack('+id+')'}" class="btn">
+						<div class="um-media-left">
+							<img class="um-circle" height=40 width=40 src="img/portal.jpg" alt="...">
+						</div>
+						<div class="um-media-body">
+							<h4 data-bind="text:name,attr:{id:'name'+id}"></h4>
+							<p>
+								<span id="type" data-bind="text:type"></span>/<span data-bind="text:phone,attr:{id:'tel'+id}"></span>
+							</p>
+						</div> </a>
+					</li>
+				</ul>
+
+			</div>
+			<div class="um-footer"></div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				setTimeout(loadTelPhone, 100);
+			});
+
+			function loadTelPhone() {
+				var jsonArray;
+				var ViewModel = function() {
+					$js.showLoadingBar();
+					$ctx.setApp({
+						"teldata" : ""
+					});
+					var cachetel = $cache.read("telmsg");
+					var json;
+					if (cachetel) {
+						json = JSON.parse(cachetel);
+					} else {
+						json = qryTelMsg();
+					}
+					if (json) {
+						$("#listview").attr("style", "display:inline");
+						jsonArray = json;
+					}
+					$js.hideLoadingBar();
+				}
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel, document.getElementById('listview'));
+			}
+
+			function qryTelMsg() {
+				var json = [];
+				var params = JSON.parse($device.getContacts());
+				for (var i = 0; i < params.length; i++) {
+					var tels = params[i].phones;
+					for (var j = 0; j < tels.length; j++) {
+						var person = {};
+						person.name = params[i].name;
+						person.id = params[i].id;
+						if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
+							person.phone = tels[j].number;
+						} else if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceAndroid) {
+							person.phone = tels[j].phone;
+						}
+						person.type = tels[j].type;
+						json.push(person);
+					}
+				}
+				if (json) {
+					$cache.write("telmsg", JSON.stringify(json));
+				}
+				return json;
+			}
+
+			function telCallBack(phone) {
+				var name = $("#name" + phone).text();
+				var tel = $("#tel" + phone).text();
+				var data = '{"name":"' + name + '","phone":"' + tel + '"}'
+				$ctx.setApp({
+					"teldata" : data
+				});
+				window.location = "contactinfo.html";
+			}
+
+			function back() {
+				window.location = "contactinfo.html";
+			}
+
+			function refersh() {
+				var myDate = new Date();
+				var mytime = myDate.toLocaleTimeString()
+				alert(mytime);
+				var jsonArray;
+				var ViewModel = function() {
+					$js.showLoadingBar();
+					var json = qryTelMsg();
+					if (json) {
+						$("#listview").attr("style", "display:inline");
+						jsonArray = json;
+					}
+					$js.hideLoadingBar();
+				}
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel, document.getElementById('listview'));
+			}
+		</script>
+	</body>
+</html>

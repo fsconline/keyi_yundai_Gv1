@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--贷款信息-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/daikuaninfo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+
+			});
+		</script>
+
+	</head>
+	<style>
+		.um-list .um-list-item-inner:after {
+			border-width: 0 0 1px 0;
+		}
+		body {
+			font-size: 16px;
+			color: #000;
+			line-height: 2.5;
+		}
+	</style>
+	<body>
+		<div class="um-page" id="index" style="line-height: 1.5;background-color: #F8F8F8;">
+			<div class="um-header" style="font-family:'宋体';">
+				<a href="sfdapply.html" class="um-back"></a>
+				<h3>贷款信息</h3>
+				<a href="#" id="save" onclick="return saveAction()" class="um-header-right">保存</a>
+			</div>
+
+			<div class="um-content">
+
+				<form action="">
+					<ul class="um-list" style="border-top:1px solid #f2f2f2;border-bottom:1px solid #f2f2f2;font-size:16px;">
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g1.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;贷款金额
+								</div>
+								<div class="um-list-item-right">
+									<input type="text" class="form-control" id="amount" placeholder="请输入金额">
+								</div>
+							</div>
+						</li>
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g2.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;贷款期限
+								</div>
+								<div class="um-list-item-right">
+									<select class="form-control" id="peroid" placeholder="月份选择(必填)" >
+										<option value="12">12个月</option>
+										<option value="24">24个月</option>
+										<option value="36">36个月</option>
+									</select>
+								</div>
+							</div>
+						</li>
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g3.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;开发商
+								</div>
+								<div class="um-list-item-right">
+
+									<input type="text" class="form-control" id="developid" value="" style="display:none">
+									<input type="text" class="form-control" id="developname" value="" style="display:none">
+									<a href="#listview2" class="btn">
+									<div class="um-box-justify">
+										<div class="um-red mr15">
+											&nbsp;&nbsp;开发商名称
+										</div>
+									</div> </a>
+
+								</div>
+							</div>
+						</li>
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g3.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;楼盘名称
+								</div>
+								<div class="um-list-item-right">
+
+									<input type="text" class="form-control" id="houses" value="" style="display:none">
+									<input type="text" class="form-control" id="housename" value="" style="display:none">
+									<a href="#listview" class="btn">
+									<div class="um-box-justify">
+										<div class="um-red mr15">
+											&nbsp;&nbsp;楼盘名称
+										</div>
+									</div> </a>
+
+								</div>
+							</div>
+						</li>
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g4.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;房屋类型
+								</div>
+								<div class="um-list-item-right">
+									<!--<input type="text" class="form-control" id="housetype" placeholder="请输入房屋类型" >-->
+									<select class="form-control" id="housetype" placeholder="房屋类型">
+										<option value="1">住宅</option>
+										<option value="2">商用</option>
+									</select>
+								</div>
+							</div>
+						</li>
+
+						<li class="um-list-item">
+							<div class="um-list-item-inner">
+								<img class="img-rounded" src="img/g3.png" style="width:20px" alt="">
+
+								<div class="um-list-item-left">
+									&nbsp;&nbsp;产品类型
+								</div>
+								<div class="um-list-item-right">
+
+									<input type="text" class="form-control" id="repayment" value="" style="display:none">
+									<input type="text" class="form-control" id="repayname" value="" style="display:none">
+									<a href="#listview3" class="btn">
+									<div class="um-box-justify">
+										<div class="um-red mr15">
+											&nbsp;&nbsp;产品类型
+										</div>
+									</div> </a>
+
+								</div>
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+
+		</div>
+		<div class="um-page" id="listview">
+			<div class="um-header" style="background-color: #191970;color:#fff;">
+				<a href="#index"  class="um-back back1">返回</a>
+			</div>
+
+			<div class="um-content">
+				<ul class="um-check-group" id="xinbie" data-bind="foreach:data">
+					<div class="">
+						<label class="um-check-group-item">
+							<input name="um-radio"  type="radio" data-bind="text:projectname" onclick="radioclick()"/>
+							<span  data-bind="text:id" style="display:none"></span> <span data-bind="text:projectname" class="um-black"></span> <span class="um-icon-check um-css3-vc"></span> </label>
+					</div>
+				</ul>
+			</div>
+		</div>
+
+		<div class="um-page" id="listview2">
+			<div class="um-header" style="background-color: #191970;color:#fff;">
+				<a href="#index"  class="um-back back2">返回</a>
+			</div>
+
+			<div class="um-content">
+				<ul class="um-check-group" id="develop" data-bind="foreach:data">
+					<div class="">
+						<label class="um-check-group-item">
+							<input name="um-radio"  type="radio" data-bind="text:developname" onclick="radiodevclick()"/>
+							<span  data-bind="text:id" style="display:none"></span> <span data-bind="text:developname" class="um-black"></span> <span class="um-icon-check um-css3-vc"></span> </label>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div class="um-page" id="listview3">
+			<div class="um-header" style="background-color: #191970;color:#fff;">
+				<a href="#index"  class="um-back back3">返回</a>
+			</div>
+
+			<div class="um-content">
+				<ul class="um-check-group" id="repay" data-bind="foreach:data">
+					<div class="">
+						<label class="um-check-group-item">
+							<input name="um-radio"  type="radio" data-bind="text:repayname" onclick="radiorepayclick()"/>
+							<span  data-bind="text:id" style="display:none"></span> <span data-bind="text:repayname" class="um-black"></span> <span class="um-icon-check um-css3-vc"></span> </label>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				//$("#listview").find(".radioclass").on("click", function() {
+				setTimeout(loadDaikuaninfo, 500);
+			});
+			//});
+
+			function loadDaikuaninfo() {
+				var cachemsg = $ctx.getApp("custinfo");
+				if (cachemsg) {
+					var params = cachemsg.split(",");
+					for (var i = 0; i < params.length; i++) {
+						var param = params[i].split(":");
+						if (param[0] == "housename") {
+							$("#index").find("a[href='#listview']").find(".um-red")[0].innerHTML = param[1];
+						}
+						if (param[0] == "developname") {
+							$("#index").find("a[href='#listview2']").find(".um-red")[0].innerHTML = param[1];
+						}
+						if (param[0] == "repayname") {
+							$("#index").find("a[href='#listview3']").find(".um-red")[0].innerHTML = param[1];
+						}
+						$("#" + param[0]).val(param[1]);
+					}
+				}
+				//加载开发商名称
+				var develop_url = url_mgr + "api/qureyDevelop";
+
+				$service.call("UMService.post", {
+					"url" : develop_url,
+					"callback" : "loadDevelopCallback()"
+				}, true);
+			}
+
+			function radioclick() {
+				var x = $("#xinbie").find("input:checked").text();
+				var id = $("#xinbie").find("input:checked").next().text();
+				if (x) {
+					document.getElementById('houses').value = id;
+					document.getElementById('housename').value = x;
+					$("#index").find("a[href='#listview']").find(".um-red")[0].innerHTML = x;
+				}
+				//window.location = "daikuaninfo.html";
+				$('.back1').click();
+			}
+
+
+	       //还款方式
+			function radiorepayclick() {
+				var x = $("#repay").find("input:checked").text();
+				var id = $("#repay").find("input:checked").next().text();
+				if (x) {
+					document.getElementById('repayment').value = id;
+					document.getElementById('repayname').value = x;
+					$("#index").find("a[href='#listview3']").find(".um-red")[0].innerHTML = x;
+				}
+				//window.location = "daikuaninfo.html";
+				$('.back3').click();
+			}
+
+
+			//开发商名称
+			function radiodevclick() {
+				var x = $("#develop").find("input:checked").text();
+				var id = $("#develop").find("input:checked").next().text();
+				if (x) {
+					document.getElementById('developid').value = id;
+					document.getElementById('developname').value = x;
+					$("#index").find("a[href='#listview2']").find(".um-red")[0].innerHTML = x;
+				}
+				//window.location = "daikuaninfo.html";
+				$('.back2').click();
+			}
+
+			function loadHouseBack() {
+				var jsonArray;
+				var ViewModel = function() {
+					jsonArray = eval($ctx.get("data"));
+				}
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel, document.getElementById('listview'));
+				//加载楼盘名称
+				var send_url = url_mgr + "api/queryRepayMent";
+
+				$service.call("UMService.post", {
+					"url" : send_url,
+					"callback" : "loadRepayCallback()"
+				}, true);
+			}
+			
+			function loadRepayMentBack(){
+				var jsonArray3;
+				var ViewModel3 = function() {
+					jsonArray3 = eval($ctx.get("data3"));
+				}
+				var viewModel3 = new ViewModel3();
+				viewModel3.data = ko.observableArray(jsonArray3);
+				ko.applyBindings(viewModel3, document.getElementById('listview3'));
+			}
+			
+			
+
+			function loadDevelopBack() {
+				var jsonArray2;
+				var ViewModel2 = function() {
+					jsonArray2 = eval($ctx.get("data2"));
+				}
+				var viewModel2 = new ViewModel2();
+				viewModel2.data = ko.observableArray(jsonArray2);
+				ko.applyBindings(viewModel2, document.getElementById('listview2'));
+				//加载楼盘名称
+				var send_url = url_mgr + "api/queryhouse";
+
+				$service.call("UMService.post", {
+					"url" : send_url,
+					"callback" : "loadHouseCallback()"
+				}, true);
+			}
+
+		</script>
+	</body>
+</html>

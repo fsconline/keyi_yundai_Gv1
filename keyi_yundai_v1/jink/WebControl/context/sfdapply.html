@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--房易贷申请界面-->
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/sfdapply.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/waterbubble.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/islider.js"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.um-back:before {
+			content: "";
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			border-left: 2px solid #FFFFFF;
+			border-bottom: 2px solid #FFFFFF;
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+	</style>
+
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-heade" style="background-color: #0f1e4f;color:#fff;">
+				<a href="sfdindex.html" class="um-back" style="margin-top:5px;font-family:'宋体';"></a>
+				<h3 style="font-family:'宋体';">完善资料</h3>
+				<!--<a href="#" class="um-header-right"  style="margin-top:5px;font-family:'宋体';">引导模式</a>-->
+			</div>
+
+			<div class="um-content">
+
+				<div class="um-box-hc vm um-row" style="height:250px; background-color: #0f1e4f;">
+					<article class="htmleaf-container">
+						<div class="htmleaf-content">
+							<div class="part" style="position: relative;">
+								<canvas id="waterbubble1"></canvas>
+								<div style="width:100px;height:30px;position: absolute;left:55px;bottom:45px;color:#fff;text-align: center;font-size:16px;">
+									资料完善程度
+								</div>
+							</div>
+
+						</div>
+					</article>
+				</div>
+
+				<div class="um-grid um-row">
+					<div class="um-grid-row tc um-border-bottom">
+						<div class="um-border-right um-bgc-white" style="padding:30px;">
+							<a href="daikuaninfo.html" class="um-circle um-black"> <img src="img/11.png" width=31 class="um-img-responsive" alt="">
+							<div class="f12 mt5">
+								贷款信息
+							</div> </a>
+						</div>
+						<div class="um-border-right um-bgc-white"  style="padding:30px;">
+							<a href="psninfo.html" class="um-circle um-black"> <img src="img/22.png" width=35 class="um-img-responsive" alt="" style="margin-top:2px;">
+							<div class="f12 mt5" style="margin-top:8px;">
+								个人信息
+							</div> </a>
+						</div>
+					</div>
+					<div class="um-grid-row tc">
+						<div class="um-border-right um-bgc-white"  style="padding:30px;">
+							<a href="applyinfo.html" class="um-circle um-black"> <img src="img/33.png" width=30 class="um-img-responsive" alt="">
+							<div class="f12 mt5">
+								申请材料
+							</div> </a>
+						</div>
+						<div class="um-border-right um-bgc-white"  style="padding:30px;">
+							<a href="contactinfo.html" class="um-circle um-black"> <img src="img/44.png" width=34 class="um-img-responsive" alt="">
+							<div class="f12 mt5">
+								联系人信息
+							</div> </a>
+						</div>
+					</div>
+				</div>
+
+				<input type="submit" class="btn um-btn" style="background-color: #DAA520;border: 0px;margin-top:25px;margin-bottom:15px;" id="commitAction" value="提交资料" onclick="return commitAction()">
+			</div>
+
+		</div>
+
+		<script src="js/jink/sfdapply.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

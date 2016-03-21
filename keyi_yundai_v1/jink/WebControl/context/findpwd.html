@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--注册页面-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/sendCode.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/register.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/findpwd.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$isWeb = true
+		</script>
+
+	</head>
+	<body>
+		<div class="um-page" id="findpwd1">
+			<div class=" tc um-header">
+				<a href="login.html" class="um-back "></a>
+				<h3>找回密码</h3>
+			</div>
+			<div class="um-content" style="border:0;">
+
+				<form id="regform">
+					<ul class="um-list" style="border:0;background:0 ;">
+						<li style="border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item">
+								<div class="um-list-item-media">
+									<span>&nbsp;</span>
+								</div>
+								<div class="um-list-item-inner">
+									<div class="um-list-item-left" style="font-size:16px;">
+										手机号码
+									</div>
+									<div class="um-list-item-right">
+										<input type="text" class="form-control" id="tel" onchange="telChangePwd(this.value)" placeholder="请输入您注册的手机号码" required>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li style="border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item">
+								<div class="um-list-item-media">
+									<span>&nbsp;</span>
+								</div>
+								<div class="um-list-item-inner">
+									<div class="um-list-item-left" style="font-size:16px;">
+										验证码
+									</div>
+
+									<div class="um-list-item-right">
+
+										<div class="um-box">
+											<input type="type" class="form-control" id="code" name="code" placeholder="请输入验证码" required>
+											<input style="background:#f1eeed;color:#888;border:1px solid #888;border-radius:20px;margin-right:5px;width: 100px;" id="sendcode"  name="sendcode" value="验证码" type="button" onclick="sendTelCode()">
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<a href="#findpwd2" class="findpwd2" data-transition="fade"></a>
+					<input type="submit" class="btn um-btn-danger" style="background:#dbba6a;border: 0;" id="regbtn" value="验证信息" onclick="return validInfo()">
+
+				</form>
+			</div>
+		</div>
+
+		<div class="um-page" id="findpwd2" style="background:0;background:url(img/6.png);background-size: cover;">
+			<div class=" tc um-heade" style="border-bottom:0;background:0;color:#000;">
+				<a href="#findpwd1" class="um-back "></a>
+				<h3>设置新密码</h3>
+			</div>
+
+			<div class="um-content" style="border:0;">
+
+				<form id="regform">
+					<ul class="um-list" style="border:0;background:0 ;">
+						<li style="border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item">
+								<div class="um-list-item-media">
+									<span>&nbsp;</span>
+								</div>
+								<div class="um-list-item-inner">
+									<div class="um-list-item-left" style="font-size:16px;">
+										新密码
+									</div>
+									<div class="um-list-item-right">
+										<input type="password" class="form-control" id="pwd" placeholder="6~12位密码，区分大小写" required>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li style="border-bottom:1px solid #e5e5e5;">
+							<div class="um-list-item">
+								<div class="um-list-item-media">
+									<span>&nbsp;</span>
+								</div>
+								<div class="um-list-item-inner">
+									<div class="um-list-item-left" style="font-size:16px;">
+										确认密码
+									</div>
+									<div class="um-list-item-right">
+										<input type="password" class="form-control" id="compwd"placeholder="6~12位密码，区分大小写" required>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<input type="submit" class="btn um-btn-danger" style="background:#dbba6a;border: 0;" id="regbtn" value="完成" onclick="return complete()">
+				</form>
+			</div>
+		</div>
+
+	</body>
+</html>

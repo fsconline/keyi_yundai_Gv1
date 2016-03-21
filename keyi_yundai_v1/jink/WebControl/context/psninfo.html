@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--个人信息-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/base.js" ></script>
+		<script src="js/jink/psninfo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$isWeb = true
+		</script>
+		<script>
+			function $pageReady() {
+				//alert("webview ready");
+			}
+
+			$(function() {
+
+			});
+		</script>
+	</head>
+	<style>
+		.um-list .um-list-item-inner:after {
+			border-width: 0 0 1px 0;
+		}
+		body {
+			font-size: 16px;
+			color: #000;
+			line-height: 2.5;
+		}
+		.um-back:before {border-left:2px solid #fff;border-bottom:2px solid #fff;}
+	</style>
+	<body>
+		<div class="um-page" id="index" style="background-color: #F8F8F8;">
+			<div class="um-header" style="line-height:1.5;font-family:'宋体';">
+				<a href="sfdapply.html" class="um-back" style="margin-left:10px;margin-top:5px;"></a>
+				<h3 style="font-family: '宋体';">个人信息</h3>
+				<a href="#" class="um-header-right" id="savePsn" onclick="savePsnAction()" style="margin-top:5px;">保存</a>
+			</div>
+
+			<div class="um-content">
+
+				<form>
+					<ul class="um-list" style="margin-top:15px;margin-bottom: 0px;">
+						<li>
+							<a href = "attch3.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<div>
+										<img class="img-rounded" src="img/gr1.png" style="width:20px" alt="">
+										<span id="attch3" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;本人持证照</span>
+									</div>
+									<div>
+										<i id="attch3right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+						<li>
+							<a href = "attch4.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<div>
+										<img class="img-rounded" src="img/gr2.png" style="width:20px" alt="">
+										<span id="attch4" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;还款账户</span>
+									</div>
+									<div>
+										<i id="attch4right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+						<li>
+							<a href = "attch1.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner" >
+									<div>
+										<img class="img-rounded" src="img/gr3.png" style="width:20px" alt="">
+										<span id="attch1" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;身份证照</span>
+									</div>
+									<div>
+										<i id="attch1right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+						
+						<li>
+							<a href = "attch2.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner" >
+									<div>
+										<img class="img-rounded" src="img/gr3.png" style="width:20px" alt="">
+										<span id="attch2" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;配偶资料</span>
+									</div>
+									<div>
+										<i id="attch2right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+
+						<li>
+							<a href = "attch21.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner" >
+									<div>
+										<img class="img-rounded" src="img/gr3.png" style="width:20px" alt="">
+										<span id="attch21" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;共借人1身份证照</span>
+									</div>
+									<div>
+										<i id="attch21right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+						<li>
+							<a href = "attch22.html">
+							<div class="um-list-item">
+								<div class="um-list-item-inner" >
+									<div>
+										<img class="img-rounded" src="img/gr3.png" style="width:20px" alt="">
+										<span id="attch22" style="font-size: 22px;color:red;"></span>
+										<span>&nbsp;&nbsp;共借人2身份证照</span>
+									</div>
+									<div>
+										<i id="attch22right" ></i>
+									</div>
+								</div>
+							</div> </a>
+						</li>
+						<li>
+							<div class="um-list-item">
+								<div class="um-list-item-inner">
+									<img class="img-rounded" src="img/gr4.png" style="width:20px" alt="">
+									<div class="um-list-item-left">
+										<span style="font-size: 20px;color:red;">*</span>联系地址
+									</div>
+									<div class="um-list-item-right">
+										<textarea type="text" id="address" class="form-control" value="" cols="30" style="height:42px;overflow: hidden;"></textarea>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</form>
+
+			</div>
+		</div>
+	</body>
+</html>

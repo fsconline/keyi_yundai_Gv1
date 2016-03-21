@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--实名认证-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js"></script>
+		<script type="text/javascript" src="js/islider.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/idbind.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="um-page" id="chgbindingphone1">
+			<div class=" tc um-header">
+
+				<a href="wode.html" class="um-back">返回</a>
+				<h3>绑定身份证</h3>
+
+			</div>
+
+			<div class="um-content">
+
+				<ul class="um-list" >
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								身份证号
+							</div>
+							<input type="text" id="idcard" class="form-control" value="" placeholder="身份证号">
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								真实姓名
+							</div>
+							<input type="name" id="name" class="form-control" value="" placeholder="真实姓名">
+						</div>
+					</li>
+
+				</ul>
+
+				<button id="bindbtn" class="btn um-btn" onclick="bindCard()">
+					完成
+				</button>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				setTimeout(loadIdInfo, 500);
+			});
+
+			function loadIdInfo() {
+				var username = $ctx.getApp("username");
+
+				var datajson = '{"username":"' + username + '"}';
+				var url = url_mgr + "api/idInfo";
+				$js.showLoadingBar();
+				$service.call("UMService.post", {
+					"url" : url,
+					"data" : JSON.parse(datajson),
+					"callback" : "loadIdInfoCallback()"
+				}, true);
+			}
+
+			function loadIdInfoBack() {
+				var data = JSON.parse($ctx.getApp("data"));
+				var isverify = data.isverify;
+				$("#idcard").val(data.idcard);
+				$("#name").val(data.name);
+				if ("Y" == isverify) {
+					$("#idcard").attr("disabled", "disabled");
+					$("#name").attr("disabled", "disabled");
+					$("#bindbtn").attr("disabled", "disabled");
+				}
+			}
+		</script>
+	</body>
+</html>

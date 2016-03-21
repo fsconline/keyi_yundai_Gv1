@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/singcontract.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+				<a href="loupan.html" class="um-back">返回</a>
+				<h3>签订合同</h3>
+			</div>
+
+			<div class="um-content">
+				<div>
+					<input type="text" name ="contid" id ="contid" style ="display:none" />
+					<div name="coninfo" id="coninfo"></div>
+				</div>
+			</div>
+
+			<div class="um-footer">
+				<div>
+					<label class="um-check-inline">
+						<input name="um-checkbox-inline" type="checkbox" value="自动登录" checked>
+						<span class="um-icon-checkbox um-css3-vc"></span> <span class="um-black ml5">我已阅读并接受《"首付贷"借款合同》及<a href="otherdeal.html">其他协议</a></span> </label>
+				</div>
+
+				<button class="btn um-btn mt20" value="签订合同" onclick="showModal()" style="height:35px;background:#dbba6a;border:0;">签订合同</button>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+						</button>
+						<h4 class="modal-title">确认密码</h4>
+					</div>
+					<div class="modal-body" style="margin-top:0;margin-bottom:0px;">
+						<ul class="um-list" style="margin-top:0;">
+							<li style="border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;">
+								<div class="um-list-item" style="border:0;">
+									<div class="um-list-item-media">
+										<img class="media-object um-circle" height=21 width=14 src="img/4.png" alt="...">
+									</div>
+									<div class="um-list-item-inner" style="border:0;">
+										<div class="um-list-item-right">
+											<input type="password" class="form-control" id="password" required>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer"  style="margin-top:0px;">
+						<button type="button" class="btn btn-default" data-dismiss="modal"  style="width:60px;">
+							关闭
+						</button>
+						<button type="button" id ="signButton" class="btn btn-primary"  style="width:60px;" onclick="signContract()">
+							确定
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

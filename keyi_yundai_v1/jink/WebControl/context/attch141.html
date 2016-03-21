@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--银行流水、工作证明-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" ></script>
+		<script type="text/javascript" src="js/islider.js"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+
+				<a href="attch14.html" class="um-back">返回</a>
+				<h3 style="font-family: '宋体';">其他资料1</h3>
+				<a href="javascript:uploadImg('apply_attch141','attchid141')" class="um-header-right">保存</a>
+
+			</div>
+
+			<div  class="um-panel-row um-red" style="font-size:14px;">
+				&nbsp;<img src="img/brcz1.png" />请参照示例图片清晰拍照
+			</div>
+
+			<div class="um-content">
+
+				<div class="um-box-hc">
+					<div style="width:306px;height:180px;margin:0 auto;background:#b1b1b1;border-radius:8px;"></div>
+				</div>
+				<div class="tc" style="font-family: '宋体';font-weight: bold;font-size:12px;margin-top:10px;">
+					示例图片
+				</div>
+				<div class="um-box-hc" onclick = "cameraOpen('attch141')">
+					<!--<div style="width:300px;height:175px;margin:0 auto;background:#fff;border:2px dashed #dadada;border-radius:8px;">-->
+					<input type="hidden" id = "attchid141" value="0">
+					<img id = "attch141" src="img/brcz3.png" alt="" onload="DrawImage(this);"  >
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				setTimeout(loadAttch141, 500);
+			});
+
+			function loadAttch141() {
+				var attachs = JSON.parse($ctx.getApp("attachs"));
+
+				if (attachs) {
+					if (attachs.attch141) {
+						var attach = JSON.parse(attachs.attch141);
+						var down_url = url_mgr + "file/down";
+						$("#attchid141").val(attach.id);
+						$("#attch141").attr("src", down_url + "?id=" + attach.src);
+						return;
+					}
+				}
+
+				var img = $cache.read("attch141img");
+				if (img) {
+					$("#attch141").attr("src", img);
+				}
+				var id = $cache.read("attch141id");
+				if (id) {
+					$("#attchid141").val(id);
+				}
+
+			}
+		</script>
+	</body>
+</html>

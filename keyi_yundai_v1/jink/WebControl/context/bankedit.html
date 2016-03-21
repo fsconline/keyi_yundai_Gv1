@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--身份证背面-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jink/bankedit.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			start();
+			function $pageReady() {
+				/*身份证背面*/
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+			}
+
+			$(function() {
+
+			});
+		</script>
+
+		<script type="text/javascript" src="js/islider.js"></script>
+
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header" >
+
+				<a href="bankcard.html" class="um-back">返回</a>
+				<h3>编辑银行卡</h3>
+				<a href="#" class="um-header-right">保存</a>
+
+			</div>
+
+			<div class="um-content">
+
+				<div class="um-box-hc" onclick="cameraOpenr('attch1rs','1')">
+					<input type="hidden" id = "attchid1rs" value="0">
+					<img id = "attch1rs" src="img/brcz3.png" style="width:100%;height:100%;">
+				</div>
+
+				<div class=" um-red" style="font-size:14px;line-height:50px;height:50px;">
+					&nbsp;&nbsp;&nbsp;<img src="img/brcz1.png" /> 请认真核对您的信息，如有误,请修改！
+				</div>
+
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								开户银行
+							</div>
+							<input id="bankdoc" type="text" class="form-control" value="" >
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								省份
+							</div>
+							<input id="sf" type="text" class="form-control" value="" >
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								城市
+							</div>
+							<input id="cs" type="text" class="form-control" value="" >
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								支行名称
+							</div>
+							<input id="khzh" type="text" class="form-control" value="" >
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								银行卡号
+							</div>
+							<input id="bankacc" type="text" class="form-control" value="" >
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<script>
+			start();
+		</script>
+	</body>
+</html>

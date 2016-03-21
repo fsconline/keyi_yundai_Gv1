@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--手势锁-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				text-align: center;
+				background-color: #305066;
+			}
+			.title {
+				color: #22C3AA;
+			}
+		</style>
+		<script>
+			function $pageReady() {
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("Mobile Native Ready");
+
+			}
+
+			$(function() {
+
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<script type="text/javascript" src="js/lock/H5lock.js"></script>
+
+		<script type="text/javascript">
+			var opt = {
+				chooseType : 3, // 3 , 4 , 5,
+				width : 400, // lock wrap width
+				height : 400, // lock wrap height
+				container : 'element', // the id attribute of element
+				inputEnd : function(psw) {
+					alert("ddd")
+				} // when draw end param is password string
+			}
+			var lock = new H5lock(opt);
+			lock.init();
+
+		</script>
+
+	</body>
+</html>

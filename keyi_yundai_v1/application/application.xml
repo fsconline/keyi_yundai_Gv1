@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application id="jink" appname="jink" versionCode="1" versionName="1" icon="app" jsengine="v2.0" push_enable="false"> 
+  <components> 
+    <component name="jink" start="true"/> 
+  </components>  
+  <import id="CFCAService" type="mobile" ref="service"/>  
+  <permission id="internet"/>
+  <permission id="read_contacts"/>
+</application>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--身份证背面-->
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/idinfo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*身份证背面*/
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("");
+			}
+
+			$(function() {
+
+			});
+		</script>
+
+	</head>
+	<style>
+		.um-list-item-left {
+			font-size: 16px;
+			margin-left: 15px;
+		}
+	</style>
+	<body>
+		<div class="um-page" id="index">
+			<div class=" tc um-header">
+
+				<a href="attch22.html" class="um-back"></a>
+				<h3 style="font-family: '宋体';">身份证反面</h3>
+				<a href="javascript:savebInfo('cust_attch22bs','attchid22bs','4')" id="saveinfo" class="um-header-right">保存</a>
+
+			</div>
+
+			<div class="um-content"  style="padding-left:0;padding-right:0;">
+
+				<div class="um-box-hc" onclick="cameraOpenb('attch22bs','4')">
+					<input type="hidden" id = "attchid22bs" value="0">
+					<img id = "attch22bs" src="img/brcz3.png" alt=""  onload="DrawImage(this);">
+				</div>
+
+				<div class=" um-red" style="font-size:14px;line-height:50px;height:50px;">
+					&nbsp;&nbsp;&nbsp;<img src="img/brcz1.png" /> 请认真核对您的信息，如有误,请修改！
+				</div>
+
+				<input type="hidden" id="custid">
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								签发机关
+							</div>
+							<input type="text" id="issue" class="form-control" value="">
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								有效期限
+							</div>
+							<input type="text" id="useful" class="form-control" value="">
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				setTimeout(loadIdCard22bs, 500);
+			});
+
+			function loadIdCard22bs() {
+				var attachs = JSON.parse($ctx.getApp("attachs"));
+				if (attachs) {
+					if (attachs.attch22bs) {
+						var attach = JSON.parse(attachs.attch22bs);
+						var down_url = url_mgr + "file/down";
+						$("#attchid22bs").val(attach.id);
+						$("#attch22bs").attr("src", down_url + "?id=" + attach.src);
+						var custinfo = attachs.custinfo4;
+						if (custinfo) {
+							var params = custinfo.split(",");
+							for (var i = 0; i < params.length; i++) {
+								var param = params[i].split(":");
+								if (param[0] == "id") {
+									if ($("#custid")) {
+										$("#custid").val(param[1]);
+									}
+								} else if ($("#" + param[0])) {
+									if ($("#" + param[0])) {
+										$("#" + param[0]).val(param[1]);
+									}
+								}
+							}
+						}
+						return;
+					}
+				}
+
+				loadBCacheInfo("idcardinfo4");
+
+				var img = $cache.read("attch22bsimg");
+				if (img) {
+					$("#attch22bs").attr("src", img);
+				}
+				
+				var id = $cache.read("attch22bsid");
+				if (id) {
+					$("#attchid22bs").val(id);
+				}
+
+			}
+		</script>
+	</body>
+</html>

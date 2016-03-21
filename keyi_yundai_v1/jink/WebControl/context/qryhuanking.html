@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+		<script type="text/javascript" src="js/Frameworks/iuapmobile.frameworks.listview-2.7.0.js"></script>
+		<script src="js/constant.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("Mobile Native Ready");
+				//loaddata();
+			}
+
+			//$(function() {
+			//	myapplyli1();
+			//	});
+		</script>
+
+		<script type="text/javascript">
+			function close(id) {
+				var traget = document.getElementById(id);
+				traget.style.display = "none";
+			};
+			function show(id) {
+				var traget = document.getElementById(id);
+				traget.style.display = "";
+			}
+
+		</script>
+
+		<style type="text/css" >
+			.um-tabbar-underline > li.active {
+				color: #FFD700;
+				background-color: transparent;
+				border-bottom: 2px solid #FFD700;
+			}
+			.um-tabbar-underline > li.active > a {
+				background-color: transparent;
+				color: #FFD700;
+			}
+			.um-tabbar-underline > li > a {
+				border-right: 0;
+				background-color: transparent;
+				color: #A9A9A9;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="um-page" id="myapplyli1">
+			<div class="um-header">
+				<a href="myapplyli.html" class="um-back"></a>
+				<h3>还款中</h3>
+
+				<ul class="um-tabbar um-tabbar-underline">
+					<li >
+						<a onclick="myapplyli3()">借款合同</a>
+					</li>
+
+					<li class="active" >
+						<a onclick = "myapplyli1()">还款计划表</a>
+					</li>
+					<li>
+						<a onclick = "myapplyli2()">还款记录</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="um-content">
+
+				<div id = "total" class="um-panel um-row h50" style="margin-bottom: 0px;">
+					<div  class="um-panel-row tc um-bgc-white">
+						<span>尊敬的用户：您总计贷款金额</span>
+						<span data-bind="text:order_total" class=""></span>
+						<span id="amount" name="amount"></span>
+						<span>元</span>
+					</div>
+				</div>
+
+				<div class="um-listview-wrap" id="listview">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+
+									<div class="um-box">
+										<div class="um-bf1 tl">
+											<span>第</span>
+											<span class="fb" data-bind="text:period"></span>
+											<span>期</span>
+										</div>
+										<div class="um-bf1 tc">
+											￥<span class="fb" data-bind="text:admount">10000.98</span>
+										</div>
+										<div class="um-bf3 tr">
+											<span data-bind="text:repaydate" class="um-gray">1111</span>
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="um-listview-wrap" id="listview2">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+
+									<div class="clearfix f16">
+										<!--
+										<div class="um-xs-6 tr um-text-overflow" >
+										<span data-bind="text:retype" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:principal"></span>
+										<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:accrual"></span>
+										<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:penalty"></span>
+										<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:compound"></span>
+										<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:bail"></span>
+										<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tl um-text-overflow">
+										<span class="fb" data-bind="text:unserve"></span>
+										<span class="fb">元</span>
+										</div>
+										-->
+										<div class="um-xs-6 tl um-text-overflow">
+											<span class="fb" data-bind="text:amount"></span>
+											<span class="fb">元</span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow" >
+											<span data-bind="text:repaydate" class="um-gray"></span>
+										</div>
+									</div>
+									<!--
+									<div class="clearfix mt5 f12">
+									<div class="um-xs-6 tl um-text-overflow">
+									<span>&nbsp;</span>
+									</div>
+									<div class="um-xs-6 tr um-text-overflow">
+									<span data-bind="text:huankuan_bank"></span>
+									</div>
+
+									</div>
+									-->
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+
+				<div name="context" id="context">
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script>
+			$(function() {
+				setTimeout(loaddata, 500);
+			});
+
+			function loaddata() {
+				show("total");
+				show("listview");
+				close("listview2");
+				close("context");
+
+				var datajson;
+				var applyId = $ctx.getApp("apply_id");
+				datajson = '{"applyId":"' + applyId + '"}';
+				var url = url_mgr + "api/qryConInfo";
+				$service.call("UMService.post", {
+					"url" : url,
+					"data" : JSON.parse(datajson),
+					"callback" : "qryConInfoCallback()"
+				}, true);
+			}
+
+			function qryConPlanBack() {
+				var jsonArray;
+				//Knockout绑定
+				var ViewModel = function() {
+					jsonArray = eval($ctx.get("data2"));
+
+				};
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel, document.getElementById('listview'));
+
+				var send_url2 = url_mgr + "api/qryPayRecord";
+				var applyId2 = $ctx.getApp("apply_id");
+				datajson = '{"applyId":"' + applyId2 + '"}';
+
+				$service.call("UMService.post", {
+					"url" : send_url2,
+					"data" : JSON.parse(datajson),
+					"callback" : "qryConPlanCallback2()"
+				}, true);
+
+			}
+
+			function qryConPlanBack2() {
+				var jsonArray2;
+				//Knockout绑定
+				var ViewModel2 = function() {
+					jsonArray2 = eval($ctx.get("data3"));
+				};
+				var ViewModel2 = new ViewModel2();
+				ViewModel2.data = ko.observableArray(jsonArray2);
+				ko.applyBindings(ViewModel2, document.getElementById('listview2'));
+			}
+
+			function myapplyli1() {
+				show("total");
+				show("listview");
+				close("listview2");
+				close("context");
+			};
+
+			function myapplyli2() {
+				close("context");
+				close("total");
+				close("listview");
+				show("listview2");
+
+			};
+
+			function myapplyli3() {
+				close("total");
+				show("context");
+				close("listview");
+				close("listview2");
+			};
+
+			function qryConInfoBack() {
+				var data;
+				if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
+					data = $ctx.param("result");
+				} else if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceAndroid) {
+					data = $stringToJSON($ctx.param("result"));
+				}
+				$("#context").html(data.continfo);
+				$("#amount").html(data.amount);
+				var send_url = url_mgr + "api/qryConPlan";
+				var applyId = $ctx.getApp("apply_id");
+				datajson = '{"applyId":"' + applyId + '"}';
+
+				$service.call("UMService.post", {
+					"url" : send_url,
+					"data" : JSON.parse(datajson),
+					"callback" : "qryConPlanCallback()"
+				}, true);
+
+			}
+		</script>
+
+	</body>
+</html>

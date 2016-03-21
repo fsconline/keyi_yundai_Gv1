@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/iuapmobile.um.listview-2.7.0.css">
+
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script src="js/waterbubble.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+		<script type="text/javascript" src="js/Frameworks/iuapmobile.frameworks.listview-2.7.0.js"></script>
+		<script src="js/Frameworks/WebViewFramework.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function $pageReady() {
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("Mobile Native Ready");
+			}
+
+			$(function() {
+
+			});
+		</script>
+
+	</head>
+	<style>
+		.um-back:before {border-left:2px solid #fff;border-bottom:2px solid #fff;}
+		.um-list .um-list-item-left{width:35%;}
+		.um-list-item-inner{font-size:16px;}
+	</style>	
+	<body>
+		<div class="um-page" id="huankuan1">
+			<div class=" tc um-header">
+				<a href="index.html" class="um-back" style="margin-top:5px;"></a>
+				<h3 style="font-family: '宋体';">还款</h3>
+			</div>
+
+			<div class="um-content">
+
+				<p>
+					<span>&nbsp;</span>
+				</p>
+
+				<div class="um-listview-wrap" id="listview">
+					<ul class="um-list um-no-active" data-bind="foreach:data">
+						<li class="um-listview-row">
+							<a class="um-list-item um-swipe-action um-no-icon">
+							<!--<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media">
+								<label class="um-check-inline um-list-left-icon">
+									<input name="um-checkbox-inline" type="checkbox">
+									<span class="um-icon-checkbox um-css3-vc"></span> </label>
+							</div>-->
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body" style="padding-right:0">
+									<div class="clearfix f16">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span class="fb" data-bind="text:company" style="font-weight: 100;"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span  data-bind="text:order_money"></span>
+											<span>元</span>
+										</div>
+									</div>
+									<div class="clearfix mt5 f12">
+										<div class="um-xs-6 tl um-text-overflow">
+											<span data-bind="text:order_date" class="um-gray"></span>
+										</div>
+										<div class="um-xs-6 tr um-text-overflow">
+											<span data-bind="text:order_state" class="um-red" style="color:#dbba6a;"></span>
+											<span data-bind="text:order_progress" class="um-red" style="color:#dbba6a;"></span>
+
+										</div>
+
+									</div>
+								</div>
+							</div> </a>
+						</li>
+					</ul>
+				</div>
+				<a href="#huankuan2" data-transition="um" >
+				<button class="btn um-btn" style="margin-bottom:10px;background:#dbba6a;border:0;">
+					下一步
+				</button> </a>
+			</div>
+
+		</div>
+
+		<div class="um-page" id="huankuan2">
+			<div class=" tc um-header">
+				<a href="#huankuan1" class="um-back"></a>
+				<h3 style="font-family: '宋体';">金科首付贷</h3>
+			</div>
+
+			<div class="um-content">
+				<div class="um-box-hc vm um-row"style="height:250px; background-color: #0d1a4a;">
+					<article class="htmleaf-container">
+						<div class="htmleaf-content">
+							<div class="part"  style="position: relative;">
+								<div style="width:100px;height:30px;position: absolute;left:55px;top:60px;color:#fff;text-align: center;">待还款金额</div>
+								<canvas id="waterbubble1"></canvas>
+								<button style="width:100px;height:30px;position: absolute;left:55px;bottom:45px;border:0;background:#384066;color:#fff;border-radius:20px;">还款计划表</button>
+							</div>
+
+						</div>
+					</article>
+				</div>
+
+
+				<ul class="um-list" style="margin-top:15px;margin-bottom:15px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								<img class="img-rounded" src="img/gr2.png" width=24 height=20 alt="">
+								&nbsp;还款期数
+							</div>
+							<div class="um-list-item-right">
+								<select class="form-control" id="peroid" placeholder="月份选择(必填)" >
+									<option>全额</option>
+									<option>当月</option>
+								</select>
+							</div>
+
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;margin-bottom:15px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								<img class="img-rounded" src="img/w4.png" width=24 height=24 alt="">
+								&nbsp;还款金额
+							</div>
+							<div class="um-list-item-right">
+								<div class="um-box-justify">
+									<input type="text" class="form-control" value="90000" >
+									<span>元</span>
+								</div>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+
+				<ul class="um-list" style="margin-top: 0px;margin-bottom:15px;">
+					<li class="um-list-item">
+						<div class="um-list-item-inner">
+							<div class="um-list-item-left">
+								<img class="img-rounded" src="img/gr2.png" width=24 height=20 alt="">
+								&nbsp;还款账号
+							</div>
+							<div class="um-list-item-right">
+								<div class="um-box-justify">
+
+									<input type="text" class="form-control" value="招商银行（9789）" >
+									<i class="ti-angle-right"></i>
+								</div>
+							</div>
+
+						</div>
+					</li>
+
+				</ul>
+				<a href="#" data-transition="um" >
+				<button class="btn um-btn" style="margin-bottom:10px;background:#dbba6a;border:0;margin-top:30px;">
+					还款
+				</button> </a>
+
+			</div>
+		</div>
+
+		<script>
+			$(function() {
+
+				//Knockout绑定
+				var ViewModel = function() {
+
+				};
+
+				var jsonArray = [{
+					'company' : '金科首付贷',
+					'order_money' : '80000.00',
+					'order_date' : '2016/02/15',
+					'order_state' : '还款中',
+					'order_progress' : '4/12'
+				}]
+
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel);
+
+				//构造控件实例
+				var listview = UM.listview('#listview');
+
+				//添加控件方法
+				listview.on('pullDown', function(sender) {
+					//这是可以编写列表下拉加载逻辑，参数sender即为当前列表实例对象
+					/* var row = {'company':'中国兵器装备集团公司','order_id':'000000000000','order_status':'待审核','order_money':'1,500','currency':'$','order_date':'2015-01-01','delivery_date':'2015-01-02','contact_name':'小明','contact_tel':'130********','if_store':false, 'memo':'记得及时发货'};
+					 viewModel.data.unshift(row);*/
+					sender.refresh();
+				});
+				listview.on('pullUp', function(sender) {
+					//这是可以编写列表上拉刷新逻辑，参数sender即为当前列表实例对象
+					/* var row = {'company':'宝钢集团有限公司','order_id':'000000000006','order_status':'待审核','order_money':'2,500','currency':'$','order_date':'2015-01-01','delivery_date':'2015-01-02','contact_name':'小明','contact_tel':'130********','if_store':false, 'memo':'记得及时发货'};
+					 viewModel.data.push(row); */
+					sender.refresh();
+				});
+				listview.on('itemDelete', function(sender, args) {
+					//这是可以编写行删除逻辑，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					/* args.$target.slideUp(500, function() {
+					 var item = viewModel.data()[args.rowIndex];
+					 viewModel.data.remove(item);
+					 }); */
+				});
+				listview.on('itemClick', function(sender, args) {
+					//这里可以处理行点击事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					//alert('您点击了列表第' + (args.rowIndex + 1) + "行！");
+
+				});
+				listview.on('itemSwipeLeft', function(sender, args) {
+					//这里可以处理行左滑事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					//sender.showItemMenu(args.$target);
+
+				});
+				listview.on('tapHold', function() {
+					//这里可以处理长按事件
+					//console.log('您长按了列表！');
+				});
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			$('#waterbubble1').waterbubble({
+				radius : 100,
+				lineWidth : 5,
+				data : 0.7,
+				waterColor : 'rgba(30,144,255, 1)',
+				textColor : 'rgba(255,255,255, 1)',
+				txt : '￥90000.00',
+				font : 'bold 30px "Microsoft YaHei"',
+				wave : true,
+				animation : true
+			});
+		</script>
+	</body>
+</html>
